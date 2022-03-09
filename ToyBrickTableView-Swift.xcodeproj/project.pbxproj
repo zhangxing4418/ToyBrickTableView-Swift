@@ -18,6 +18,9 @@
 		0471946E27D5F35B00D31242 /* TBValue1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471946D27D5F35B00D31242 /* TBValue1TableViewCell.swift */; };
 		0471947027D72DB500D31242 /* NSMutableDictionary+TableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471946F27D72DB500D31242 /* NSMutableDictionary+TableViewCellAction.swift */; };
 		0471947227D7395D00D31242 /* TBSplitLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471947127D7395D00D31242 /* TBSplitLineTableViewCell.swift */; };
+		0471947627D848DE00D31242 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0471947327D848DE00D31242 /* LICENSE */; };
+		0471947727D848DE00D31242 /* ToyBrickTableView-Swift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0471947427D848DE00D31242 /* ToyBrickTableView-Swift.podspec */; };
+		0471947827D848DE00D31242 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0471947527D848DE00D31242 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		0471946D27D5F35B00D31242 /* TBValue1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBValue1TableViewCell.swift; sourceTree = "<group>"; };
 		0471946F27D72DB500D31242 /* NSMutableDictionary+TableViewCellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableDictionary+TableViewCellAction.swift"; sourceTree = "<group>"; };
 		0471947127D7395D00D31242 /* TBSplitLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBSplitLineTableViewCell.swift; sourceTree = "<group>"; };
+		0471947327D848DE00D31242 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0471947427D848DE00D31242 /* ToyBrickTableView-Swift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ToyBrickTableView-Swift.podspec"; sourceTree = "<group>"; };
+		0471947527D848DE00D31242 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,9 @@
 		0471944827D5D37F00D31242 = {
 			isa = PBXGroup;
 			children = (
+				0471947327D848DE00D31242 /* LICENSE */,
+				0471947527D848DE00D31242 /* README.md */,
+				0471947427D848DE00D31242 /* ToyBrickTableView-Swift.podspec */,
 				0471945327D5D37F00D31242 /* ToyBrickTableView-Swift */,
 				0471945227D5D37F00D31242 /* Products */,
 			);
@@ -148,9 +157,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0471947827D848DE00D31242 /* README.md in Resources */,
 				0471946127D5D38100D31242 /* LaunchScreen.storyboard in Resources */,
 				0471945E27D5D38100D31242 /* Assets.xcassets in Resources */,
+				0471947627D848DE00D31242 /* LICENSE in Resources */,
 				0471945C27D5D37F00D31242 /* Main.storyboard in Resources */,
+				0471947727D848DE00D31242 /* ToyBrickTableView-Swift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -300,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -324,6 +336,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,6 +364,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
