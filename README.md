@@ -56,8 +56,6 @@ override func updateCellWithDict(dict: NSMutableDictionary) {
 private lazy var tableView: TBTableView = {
     var tableView = TBTableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), style: UITableView.Style.plain)
     tableView.backgroundColor = UIColor.white
-    tableView.dataSource = self
-    tableView.delegate = self
     tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     tableView.showsVerticalScrollIndicator = false
     tableView.showsHorizontalScrollIndicator = false
@@ -66,56 +64,12 @@ private lazy var tableView: TBTableView = {
     return tableView
 }()
 ```
->⚠️ 以下```UITableViewDataSource```、```UITableViewDelegate```两个代理的实现照抄就行🥳
-```swift
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.dataSource.count
-}
-    
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let dict: NSMutableDictionary = self.dataSource[indexPath.row]
-    let tableViewCellClass: AnyClass = TBTableViewCell.tableViewCellClassOfDict(dict: dict)
-    let reuseIdentifier: String = (tableViewCellClass as! TBTableViewCell.Type).reuseIdentifier()
-        
-    var tableViewCell: TBTableViewCell? = (tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? TBTableViewCell)
-    if tableViewCell == nil {
-        tableViewCell = (tableViewCellClass as! TBTableViewCell.Type).init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
-        tableViewCell?.backgroundColor = UIColor.clear
-        tableViewCell?.selectionStyle = UITableViewCell.SelectionStyle.none
-    }
-    tableViewCell?.updateCellWithDict(dict: dict)
-    return tableViewCell!
-}
-    
-func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    let dict: NSMutableDictionary = self.dataSource[indexPath.row]
-    let tableViewCellClass: AnyClass = TBTableViewCell.tableViewCellClassOfDict(dict: dict)
-    let height: Float = (tableViewCellClass as! TBTableViewCell.Type).cellRowHeightForDict(dict: dict)
-    return (height == Float(UITableView.automaticDimension) || height >= 0) ? CGFloat(height) : 0
-}
-    
-func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    let dict: NSMutableDictionary = self.dataSource[indexPath.row]
-    let tableViewCellClass: AnyClass = TBTableViewCell.tableViewCellClassOfDict(dict: dict)
-    let height: Float = (tableViewCellClass as! TBTableViewCell.Type).cellRowHeightForDict(dict: dict)
-    if #available(iOS 11.0, *) {
-        return (height == Float(UITableView.automaticDimension) || height >= 0) ? CGFloat(height) : 0
-    }else {
-        return height <= 1 ? 0 : CGFloat(height)
-    }
-}
-    
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let dict: NSMutableDictionary = self.dataSource[indexPath.row]
-    dict.executeAction()
-}
-```
 * TableView数据源构建
 ```swift
 private func buildCellDataSource() {
-    self.dataSource.removeAll()
+    self.tableView.dataSources.removeAll()
     
-    self.dataSource.append(CustomerTableViewCell.buildCellDict(model: model).addAction(actionBlock: {
+    self.tableView.dataSources.append(CustomerTableViewCell.buildCellDict(model: model).addAction(actionBlock: {
         print("点击")
         //doSomething
     }))
