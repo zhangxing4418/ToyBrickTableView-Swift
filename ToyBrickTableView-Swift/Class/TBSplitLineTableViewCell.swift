@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 class TBSplitLineTableViewCell: TBTableViewCell {
+    var height: CGFloat?
+    var leftEdge: CGFloat?
+    var rightEdge: CGFloat?
+    
     lazy var splitLineView: UIView = {
         let lineView: UIView = UIView.init(frame: CGRect.zero)
         lineView.backgroundColor = UIColor.clear
@@ -40,16 +44,18 @@ class TBSplitLineTableViewCell: TBTableViewCell {
     
     override func updateCellWithDict(dict: NSMutableDictionary) {
         let bgColor: UIColor = dict["bgColor"] as! UIColor
-        let height: CGFloat = dict["height"] as! CGFloat
-        let leftEdge: CGFloat = dict["leftEdge"] as! CGFloat
-        let rightEdge: CGFloat = dict["rightEdge"] as! CGFloat
+        height = dict["height"] as? CGFloat
+        leftEdge = dict["leftEdge"] as? CGFloat
+        rightEdge = dict["rightEdge"] as? CGFloat
         if bgColor.isEqual(UIColor.clear) {
             self.contentView.backgroundColor = UIColor.clear
         }
         self.splitLineView.backgroundColor = bgColor
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-            self.splitLineView.frame = CGRect(x: leftEdge, y: 0, width: self.contentView.frame.width - leftEdge - rightEdge, height: height)
-        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.splitLineView.frame = CGRect(x: leftEdge ?? 0, y: 0, width: self.contentView.frame.width - (leftEdge ?? 0) - (rightEdge ?? 0), height: height ?? 0)
     }
     
     required init?(coder: NSCoder) {
